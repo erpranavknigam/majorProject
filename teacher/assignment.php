@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../dbcon.php")
+    
 ?>
 <html>
 
@@ -72,7 +72,7 @@
             <div class="form-group row" style="margin-top:5px;">
 
                 <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Post Assignment</button>
+                    <button type="submit" class="btn btn-primary" name="post">Post Assignment</button>
                 </div>
                 <br />
                 <div class="col-sm-10" style="margin-top: 5px;">
@@ -82,7 +82,19 @@
             </div>
         </form>
     </div>
-    
+    <?php
+        if(isset($_POST['post'])){
+            include("../dbcon.php");
+            $name = strtolower($_POST['name']);
+            $des = $_POST['description'];
+            $date = $_POST['date'];
+            $file = $_FILES['file']['name'];
+            $tmpname = $_FILES['file']['tmp_name'];
+
+            move_uploaded_file($tmpname,"../assignment_file/$file");
+            
+        }
+    ?>
 </body>
 
 </html>

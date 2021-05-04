@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../dbcon.php")
+    
 ?>
 <html>
 
@@ -77,6 +77,19 @@
             </div>
         </form>
     </div>
+    <?php
+        if(isset($_POST['post'])){
+            include("../dbcon.php");
+            $name = strtolower($_POST['name']);
+            $des = $_POST['description'];
+            
+            $file = $_FILES['file']['name'];
+            $tmpname = $_FILES['file']['tmp_name'];
+
+            move_uploaded_file($tmpname,"../notes_file/$file");
+            
+        }
+    ?>
     
 </body>
 
