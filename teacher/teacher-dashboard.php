@@ -23,6 +23,7 @@
     .container {
         border: 3px ridge green;
     }
+    
 
     @media screen and (max-width: 550px) {
         .container {
@@ -36,6 +37,7 @@
     <div class="jumbotron bg-success"
         style="text-align:center; padding: 25px; font-size: 4vw;color:white;font-family:Righteous">Welcome To Teacher's
         Dashboard
+        <span style="font-size:small;float:right;border:2px ridge ;border-radius:5px;padding: 3px;" class="logout"><a href="../logout.php" style="text-decoration:none;color:white;">Logout</a></span>
     </div>
     <br />
     <div class="container" style="text-align:center; justify-content:center; display:flex;">
