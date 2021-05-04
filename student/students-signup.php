@@ -2,7 +2,72 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type = "text/css" href = "css/style.css">
+    <style>
+    *{
+    margine: 0;
+    padding: 0;
+    }
+body{
+    
+        background-image: url(p.jpg);
+        background-position: center;
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 40px;
+    }
+    h1{
+        color: white;
+        text-align: center;
+        font-style: italic;
+        padding: 20px;
+        width: 40%;
+        margin: auto;
+        background-color: rgb(0,0,0,0.4);
+        padding: 10px;
+    }
+    h2{
+        color: white;
+        text-align: center;
+        font-style: italic;
+        
+    }
+   
+    label{
+        color:white;
+        font-size: 20px;
+        font-style: italic;
+    }
+    .reg{
+        width: 40%;
+        margin: auto;
+        background-color: rgb(0,0,0,0.4);
+        padding: 10px;
+    }
+    #reg{
+        width: 60%;
+        margin: auto;
+    }
+    #name{
+        width: 300px;
+        outline: 0;
+        padding: 5px;
+        border: 3px groove;
+        border-radius: 3px;
+    }
+    #sub{
+        width: 300px;
+        outline: 0;
+        padding: 5px;
+        border: 3px groove;
+        color: white;
+        font-size: 18px;
+        font-style: italic;
+        background-color: #487948;
+        border-radius: 3px;
+
+    }
+    </style>
+	
 </head>
 <body>
     <h1>STUDENT REGISTRATION</h1>
