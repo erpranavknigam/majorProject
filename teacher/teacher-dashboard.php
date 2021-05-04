@@ -97,7 +97,7 @@
 
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="attendance.php" class="text-primary"
+                        <a href="../attendance/index.php" class="text-primary"
                             style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
                             <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">
                                 Attendance
