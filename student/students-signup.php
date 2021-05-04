@@ -4,7 +4,7 @@
 	<title></title>
     <style>
     *{
-    margine: 0;
+    margin: 0;
     padding: 0;
     }
 body{
