@@ -26,13 +26,13 @@ body {
 	height: 430px;
 }
 .form-box:before {
-	background-image: url("../image/login2.jpg");
+	background-image: url("../images/login2.jpg");
 	width: 100%;
 	height: 100%;
 	background-size: cover;
 	content: "";
 	position: fixed;
-	left: 0;
+	left: 0;s
 	right: 0;
 	top: 0;
 	bottom: 0;

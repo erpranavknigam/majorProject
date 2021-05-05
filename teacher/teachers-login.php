@@ -26,7 +26,7 @@ body {
 	height: 430px;
 }
 .form-box:before {
-	background-image: url("../image/login.jpg");
+	background-image: url("../images/login.jpg");
 	width: 100%;
 	height: 100%;
 	background-size: cover;
