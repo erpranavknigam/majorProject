@@ -129,34 +129,36 @@ body{
             </select><br><br>
             
             <button type="submit"
-            id="sub">Register Here</button>
+            id="sub" name="submit">Register Here</button>
                 
         </form>
         <?php
-          $FullName = $_POST['name']??"";
-          $Student = $_POST['sid']??"";
-          $RollNo = $_POST['roll']??"";
-          $Email = $_POST['email']??"";
-          $Password = $_POST['password']??"";
-          $RePassword = $_POST['repassword']??"";
-          $Department = $_POST['department']??"";
-          $Semester = $_POST['sem']??"";
-
-          $conn=mysqli_connect('localhost','root','','major');
-
-          $query="INSERT INTO `student`(`Student Id`, `Name`, `Roll`, `Email`, `Password`, `Department`, `Semester`) VALUES ('$Student','$FullName','$RollNo','$Email','$Password','$Department','$Semester')";
-          $run=mysqli_query($conn,$query);
-          if($run==True){
-        ?>      
-             <script>
-               alert("Data Inserted successfully");
-             </script>
-             <?php
-          }
-
-            else{
-                echo "Error: " .$run."<br>" .mysqli_error($conn);
+          if(isset($_POST['submit'])){
+            $FullName = $_POST['name']??"";
+            $Student = $_POST['sid']??"";
+            $RollNo = $_POST['roll']??"";
+            $Email = $_POST['email']??"";
+            $Password = $_POST['password']??"";
+            $RePassword = $_POST['repassword']??"";
+            $Department = $_POST['department']??"";
+            $Semester = $_POST['sem']??"";
+  
+            $conn=mysqli_connect('localhost','root','','major');
+  
+            $query="INSERT INTO `student`(`Student Id`, `Name`, `Roll`, `Email`, `Password`, `Department`, `Semester`) VALUES ('$Student','$FullName','$RollNo','$Email','$Password','$Department','$Semester')";
+            $run=mysqli_query($conn,$query);
+            if($run==True){
+          ?>      
+               <script>
+                 alert("Your are Registered Successfully");
+               </script>
+               <?php
             }
+  
+              else{
+                  echo "Error: " .$run."<br>" .mysqli_error($conn);
+              }
+          }
          
     ?>
 
