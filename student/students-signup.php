@@ -149,7 +149,7 @@ body{
           if($run==True){
         ?>      
              <script>
-               alert("Data Inserted successfully");
+               alert("You Are Registerd successfully");
              </script>
              <?php
           }
