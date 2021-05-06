@@ -71,8 +71,9 @@ body{
 </head>
 <body>
     <h1>STUDENT REGISTRATION</h1>
+  
     <div class="reg">
-        <form id="reg" method="post" action="..php">
+        <form id="reg" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <h2>Register Here</h2>
             <label>Full Name</label><br>
             <input type="text" name="name"
@@ -80,27 +81,27 @@ body{
             <br><br><br>
 
             <label>Student Id</label><br>
-            <input type="student" name="name"
+            <input type="student" name="sid"
              placeholder="Student Id" id="name">
             <br><br><br>
 
             <label>Roll Number</label><br>
-            <input type="roll" name="name"
+            <input type="roll" name="roll"
              placeholder="roll number" id="name">
             <br><br><br>
 
             <label>Email-Id</label><br>
-            <input type="email" name="name"
+            <input type="email" name="email"
              placeholder="email id" id="name">
             <br><br><br>
 
             <label>Password</label><br>
-            <input type="password" name="name"
+            <input type="password" name="password"
              placeholder="Password" id="name">
             <br><br><br>
 
             <label>Re-Enter Password</label><br>
-            <input type="reenter" name="name"
+            <input type="reenter" name="repassword"
              placeholder="Re-Enter password" id="name">
             <br><br><br>
 
@@ -115,22 +116,51 @@ body{
             </select><br><br><br>
             
             <label>semester</label><br>
-            <select class="option" name="department">
+            <select class="option" name="sem">
                 <option disabled="disabled" selected="selected">--Choose option</option>
-                <option> 1st </option>
-                <option> 2nd </option>
-                <option> 3rd </option>
-                <option> 4th </option>
-                <option> 5th </option>
-                <option> 6th </option>
-                <option> 7th </option>
-                <option> 8th </option>
+                <option value=1> 1st </option>
+                <option value=2> 2nd </option>
+                <option value=3> 3rd </option>
+                <option value=4> 4th </option>
+                <option value=5> 5th </option>
+                <option value=6> 6th </option>
+                <option value=7> 7th </option>
+                <option value=8> 8th </option>
             </select><br><br>
             
             <button type="submit"
             id="sub">Register Here</button>
                 
         </form>
+        <?php
+          $FullName = $_POST['name']??"";
+          $Student = $_POST['sid']??"";
+          $RollNo = $_POST['roll']??"";
+          $Email = $_POST['email']??"";
+          $Password = $_POST['password']??"";
+          $RePassword = $_POST['repassword']??"";
+          $Department = $_POST['department']??"";
+          $Semester = $_POST['sem']??"";
+
+          $conn=mysqli_connect('localhost','root','','major');
+
+          $query="INSERT INTO `student`(`Student Id`, `Name`, `Roll`, `Email`, `Password`, `Department`, `Semester`) VALUES ('$Student','$FullName','$RollNo','$Email','$Password','$Department','$Semester')";
+          $run=mysqli_query($conn,$query);
+          if($run==True){
+        ?>      
+             <script>
+               alert("Data Inserted successfully");
+             </script>
+             <?php
+          }
+
+            else{
+                echo "Error: " .$run."<br>" .mysqli_error($conn);
+            }
+         
+    ?>
+
     </div>
 </body>
+
 </html>
