@@ -41,7 +41,7 @@ session_start();
     </div>
     <br />
     <div class="container">
-        <form action="" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="form-group row" style="margin-top:5px;">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
                 <div class="col-sm-10">
@@ -86,104 +86,8 @@ session_start();
         </form>
     </div>
     <br />
-    <div class="container">
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <div class="form-group row" style="margin-top:5px;">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Select Date</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" id="inputPassword3" name="date" required>
-                </div>
-            </div>
-            <div class="form-group row" style="margin-top:5px;">
-                <?php
-                    if(isset($_POST['fetch'])){
-                        
-                        $dept = $_POST['department'];
-                        $sem =  $_POST['sem'];
-                        $conn=mysqli_connect('localhost','root','','major');
-                        
-                        $qry = "SELECT `Name`,`Roll` FROM `student` WHERE (`Department` = '$dept' AND `Semester` = '$sem')";
-                        
-                        $result = mysqli_query($conn,$qry);
-                        
-                        
-                        if((mysqli_num_rows($result) > 0)) {
-                ?>
-                <table class="table table-bordered table-striped">
-                    <tr class="bg-success" style = "color:white; text-align:center;">
-                        <td>Name</td>
-                        <td>Roll No</td>
-                        <td>Is Present</td>
-                        <td>Is Absent</td>
-                    </tr>
-                    <?php
-                            $i = 0;
-                            while($row = mysqli_fetch_assoc($result)) {
-                                $name = $row['Name'];
-                                $roll = $row['Roll'];
-                                ?>
-                    <tr>
-                        <td><?php echo $row['Name'];?></td>
-                        <td><?php echo $row['Roll'];?></td>
-                        <td style="text-align:center;"><input type="checkbox" name="is_present<?php echo $roll?>" value="1"></input></td>
-                        <td style="text-align:center;"><input type="checkbox" name="is_present<?php echo $roll?>" value="0"></input></td>
-                    </tr>
-                    <?php
-                                $i++;
-                            }
-                        ?>
-                </table>
-
-                <?php
-                        }
-                        else{
-                            echo "No Data Found";
-                        }
-                ?>
-                <?php
-                    }  
-                    
-                ?>
-            </div>
-            <div class="form-group row" style="margin-top:5px;">
-
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary" name="submit">Submit Details</button>
-                </div>
-                <br />
-                <div class="col-sm-10" style="margin-top: 5px;">
-                    <button type="reset" class="btn btn-danger">Reset Details</button>
-                </div>
-
-            </div>
-        </form>
-    </div>
     
 
 </body>
 
 </html>
-<?php
-        if(isset($_POST['submit'])){
-            $date = $_POST['date'];
-            $is_present = $_POST['is_present'];
-            $name = $_REQUEST['Name'];
-            $dept = $_REQUEST['Department'];
-            $roll = $_REQUEST['Roll'];
-            $sem = $_REQUEST['Semester'];
-            $conn=mysqli_connect('localhost','root','','major');
-                        
-            $qry = "INSERT INTO `attendance` VALUES('$name','$roll','$dept','$sem','$is_present','$date')";
-            $run=mysqli_query($conn,$qry);
-            if($run==true){
-            ?>
-            
-            <script>alert("Data Submitted Successfully");</script>
-            <?php        
-        } else{
-            ?>
-            <script>alert("Some Error Occured");</script>
-            <?php
-        }
-    }
-    ?>
