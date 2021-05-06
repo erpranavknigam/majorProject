@@ -41,7 +41,7 @@ session_start();
     </div>
     <br />
     <div class="container">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
             <div class="form-group row" style="margin-top:5px;">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
                 <div class="col-sm-10">
@@ -86,8 +86,127 @@ session_start();
         </form>
     </div>
     <br />
-    
+    <form action="attendance.php" method="get">
 
+        <div class="container container-fluid table-responsive">
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="inputPassword3" placeholder="Date" name="date" required>
+                </div>
+            </div>
+            <table class="table table-striped table-bordered" width="45%" style="margin-top:20px;">
+                <tr style="text-align:center; color:white" class="bg-primary">
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>Roll No.</th>
+                    <th>Department</th>
+                    <th>Semester</th>
+                    <th>Is Present</th>
+                    <th>Is Absent</th>
+                </tr>
+                <tr>
+                    <td>
+                        <?php
+                        
+                if (isset($_GET['fetch'])) {
+                    include('../dbcon.php');
+                    $dept = $_GET['department'];
+                    $sem = $_GET['sem'];
+                    $qry = "SELECT * FROM `student` WHERE `Department` = '$dept' AND `Semester` = '$sem'";
+                    $run = mysqli_query($con, $qry);
+                    if (mysqli_num_rows($run) < 1) {
+                        echo "<tr><td colspan = '7'>No record Found</td></tr>";
+                    } else {
+                        $count = 0;
+                        while ($data = mysqli_fetch_assoc($run)) {
+                            $count++;
+                ?>
+
+                <tr class="tablestyle">
+                    <td><?php echo $count ?></td>
+                    <td><input type="text" value="<?php echo $data['Name']; ?>" name="name<?php echo $count?>"></td>
+                    <td><input type="text" value="<?php echo $data['Roll']; ?>" name="roll<?php echo $count?>"></td>
+                    <td><input type="text" value="<?php echo $data['Department']; ?>" name="dept<?php echo $count?>">
+                    </td>
+                    <td><input type="text" value="<?php echo $data['Semester']; ?>" name="sem<?php echo $count?>"></td>
+                    <td>
+
+                        <input type="radio" name="is_present<?php echo $count;?>" value="1">
+
+                    </td>
+                    <td>
+
+                        <input type="radio" name="is_present<?php echo $count;?>" value="0">
+
+                    </td>
+
+                </tr>
+                <?php
+                
+
+                        }
+                    }
+                }
+                
+                ?>
+                </td>
+                </tr>
+                <tr>
+                    <td colspan="7" style="text-align:center">
+                        <div class="form-group row" style="margin-top:5px;">
+
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary" name="submit">Submit Details</button>
+                            </div>
+                            <br />
+                            <div class="col-sm-10" style="margin-top: 5px;">
+                                <button type="reset" class="btn btn-danger">Reset Details</button>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </form>
+    <?php
+        if(isset($_GET['submit'])){
+            
+        
+        include('../dbcon.php');
+        $res = mysqli_query($con,"SELECT count(1) FROM `student`");
+        $row = mysqli_fetch_array($res);
+        $total = $row[0];
+        
+        $i = 1;
+        $Date = $_GET['date'];
+        while($i <= $total){
+            $Name = $_GET['name'.$i];
+            $Dept = $_GET['dept'.$i];
+            $Roll = $_GET['roll'.$i];
+            $Sem = $_GET['sem'.$i];
+            $isPresent = $_GET['is_present'.$i];
+           
+            
+            $query = "INSERT INTO `attendance` VALUES('$Name','$Roll','$Dept','$Sem','$isPresent','$Date')";
+            $result = mysqli_query($con, $query);
+            $i++;
+        }
+        if($result == true) {
+            ?>
+            <script>alert("Attendance Submitted Successfully");</script>
+            <?php
+            
+        }else {
+            ?>
+         <script>alert("Some Error Occured");</script>
+
+            <?php
+        }
+    } 
+    ?>
 </body>
 
 </html>
