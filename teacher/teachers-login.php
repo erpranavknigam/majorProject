@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Animated Login Form UI Design</title>
+    <title>Teacher Login</title>
     <style>
     * {
 	box-sizing: border-box;
@@ -110,15 +110,13 @@ span a {
 </head>
 <body>
     <div class="form-box">
-	<form method="post" action="#">
+	<form method="post" action="teachers-login2.php">
 		<div class="header-text">
 			Teacher Login 
 		</div><input type="text" placeholder="Your Username" name="user"> 
         <input type="password" placeholder="Your Password" name="password"> 
-        <input id="terms" type="checkbox"> 
-        <label for="terms"></label>
-        <span>Agree with <a href="#">Terms & Conditions</a></span> 
-        <button>login</button>
+        
+        <button name = "login" type="submit">Login</button>
 	</form>	
 	</div>
     </body>
