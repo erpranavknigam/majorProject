@@ -114,7 +114,7 @@ span a {
 </head>
 <body>
     <div class="form-box">
-	<form action="students-login.php" method="post">
+	<form action="students-login2.php" method="post">
 	
 		<div class="header-text">
 			Student Login 
@@ -131,4 +131,5 @@ span a {
 	</div>
     </body>
 </html>	
+
 
