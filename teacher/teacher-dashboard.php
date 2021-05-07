@@ -23,7 +23,7 @@
     .container {
         border: 3px ridge green;
     }
-    
+
 
     @media screen and (max-width: 550px) {
         .container {
@@ -37,7 +37,8 @@
     <div class="jumbotron bg-success"
         style="text-align:center; padding: 25px; font-size: 4vw;color:white;font-family:Righteous">Welcome To Teacher's
         Dashboard
-        <span style="font-size:small;float:right;border:2px ridge ;border-radius:5px;padding: 3px;" class="logout"><a href="../logout.php" style="text-decoration:none;color:white;">Logout</a></span>
+        <span style="font-size:small;float:right;border:2px ridge ;border-radius:5px;padding: 3px;" class="logout"><a
+                href="../logout.php" style="text-decoration:none;color:white;">Logout</a></span>
     </div>
     <br />
     <div class="container" style="text-align:center; justify-content:center; display:flex;">
@@ -97,7 +98,7 @@
 
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="../attendance/index.php" class="text-primary"
+                        <a href="attendance.php" class="text-primary"
                             style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
                             <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">
                                 Attendance
@@ -108,6 +109,25 @@
             </div>
         </div>
 
+    </div>
+    <div class="container" style="text-align:center; justify-content:center; display:flex;">
+        <div class="row" style="padding:30px; margin-top:20px; margin-bottom:20px;">
+            <div class="col-md-12">
+                <div class="card" style="width: 18rem;text-align:center;">
+                    <img class="card-img-top" src="../images/quiz.png" alt="Quiz Logo" width="200px" height="200px;">
+
+                    <hr />
+                    <div class="card-body bg-success" style="margin-top:-10px;">
+                        <a href="quiz.php" class="text-primary"
+                            style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
+                            <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">Check
+                                Assignment
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
