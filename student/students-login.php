@@ -162,3 +162,7 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+<?php
+	unset($_SESSION['user']);
+	unset($_SESSION['password']);
+?>
