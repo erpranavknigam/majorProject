@@ -116,7 +116,7 @@ span a {
 </head>
 <body>
     <div class="form-box">
-	<form action="student-dashboard.php?id=<?php echo $Student?>" method="post">
+	<form action="student-dashboard.php" method="post">
 	
 		<div class="header-text">
 			Student Login 
@@ -124,7 +124,7 @@ span a {
 		<input type="text" name="user" id="uid" placeholder="Enter Username" required />
         <input type="password" name="password" id="pwd" placeholder="Enter Password" required /> 
 		
-        <input id="terms" type="checkbox"> 
+        <input id="terms" type="checkbox" required> 
         <label for="terms"></label>
         <span>Agree with <a href="#">Terms & Conditions</a></span> 
 		<button type="submit" name="submit">login</button>
