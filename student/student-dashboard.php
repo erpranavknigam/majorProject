@@ -34,6 +34,8 @@
 </head>
 
 <body onexit="<?php session_abort();?>">
+
+
     <div class="jumbotron bg-success"
         style="text-align:center; padding: 25px; font-size: 4vw;color:white;font-family:Righteous">Welcome To Student's
         Dashboard

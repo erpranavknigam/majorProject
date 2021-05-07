@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION['uid'])) {
+    header('location:student-dashboard.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,13 +116,49 @@ span a {
 </head>
 <body>
     <div class="form-box">
+	<form action="student-dashboard.php?id=<?php echo $Student?>" method="post">
+	
 		<div class="header-text">
 			Student Login 
-		</div><input placeholder="Username" type="text"> 
-        <input placeholder="Your Password" type="password"> 
+		</div>
+		<input type="text" name="user" id="uid" placeholder="Enter Username" required />
+        <input type="password" name="password" id="pwd" placeholder="Enter Password" required /> 
+		
         <input id="terms" type="checkbox"> 
         <label for="terms"></label>
         <span>Agree with <a href="#">Terms & Conditions</a></span> 
-        <button>login</button>
+		<button type="submit" name="submit">login</button>
+        
+	</form>	
+
+		
 	</div>
     </body>
+</html>	
+<?php
+include('../dbcon.php');
+if (isset($_POST['submit'])) {
+    $username = $_POST['user'];
+    $password = $_POST['password'];
+
+    $qry = "SELECT * FROM `student` WHERE `user` = '$username' AND `password` = '$password'";
+    $run = mysqli_query($con, $qry);
+	$row = mysqli_num_rows($run);
+    if ($row < 1) {
+?>
+         <script>
+            alert("User does not exists.")
+            window.open('students-login.php', '_self');
+        </script>
+<?php
+    } else {
+        $data = mysqli_fetch_assoc($run);
+
+        $id = $data['id'];
+
+        $_SESSION['user'] = $username;
+        $_SESSION['uid'] = $id;
+        header('location:student-dashboard.php');
+    }
+}
+?>

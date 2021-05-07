@@ -110,13 +110,15 @@ span a {
 </head>
 <body>
     <div class="form-box">
+	<form method="post" action="#">
 		<div class="header-text">
 			Teacher Login 
-		</div><input placeholder="Your Username" type="text"> 
-        <input placeholder="Your Password" type="password"> 
+		</div><input type="text" placeholder="Your Username" name="user"> 
+        <input type="password" placeholder="Your Password" name="password"> 
         <input id="terms" type="checkbox"> 
         <label for="terms"></label>
         <span>Agree with <a href="#">Terms & Conditions</a></span> 
         <button>login</button>
+	</form>	
 	</div>
     </body>
