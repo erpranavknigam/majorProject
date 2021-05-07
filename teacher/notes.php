@@ -46,7 +46,7 @@
             <div class="form-group row" style="margin-top:5px;">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="Title of Assignment"
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="Title of Notes"
                         name="name">
                 </div>
             </div>
@@ -55,6 +55,12 @@
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="inputPassword3" placeholder="Description"
                         name="description">
+                </div>
+            </div>
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Teacher Id</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="Teacher Id" name="tid" value="<?php echo $_GET['id']??''?>"required>
                 </div>
             </div>
             
@@ -67,7 +73,7 @@
             <div class="form-group row" style="margin-top:5px;">
 
                 <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Post Assignment</button>
+                    <button type="submit" class="btn btn-primary" name="post">Post Notes</button>
                 </div>
                 <br />
                 <div class="col-sm-10" style="margin-top: 5px;">
@@ -82,11 +88,27 @@
             include("../dbcon.php");
             $name = strtolower($_POST['name']);
             $des = $_POST['description'];
-            
+            $tecid = $_POST['tid'];
             $file = $_FILES['file']['name'];
             $tmpname = $_FILES['file']['tmp_name'];
 
             move_uploaded_file($tmpname,"../notes_file/$file");
+            $qry = "INSERT INTO `notes` VALUES('$name','$des','$file','$tecid')";
+            $run = mysqli_query($con,$qry);
+            if ($run == True) {
+                ?>
+                        <script>
+                            alert("Assignment Assigned Successfully.");
+                        </script>
+                <?php
+                    session_reset();
+                    session_destroy();
+                    session_abort();
+                    
+                    
+                    } else {
+                        echo "Error: " . $run . "<br>" . mysqli_error($con);
+                    }
             
         }
     ?>

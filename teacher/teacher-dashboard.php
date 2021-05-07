@@ -1,5 +1,5 @@
 <?php
-    session_start()
+    session_start();
 ?>
 <html>
 
@@ -33,7 +33,7 @@
     </style>
 </head>
 
-<body onexit="<?php session_abort();?>">
+<body>
 <?php
         $id = $_GET['id'];
         $con = mysqli_connect("localhost","root","","major");

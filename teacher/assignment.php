@@ -47,26 +47,32 @@
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="inputEmail3" placeholder="Title of Assignment"
-                        name="name">
+                        name="name" required>
                 </div>
             </div>
             <div class="form-group row" style="margin-top:5px;">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="inputPassword3" placeholder="Description"
-                        name="description">
+                        name="description" required>
                 </div>
             </div>
             <div class="form-group row" style="margin-top:5px;">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Due Date</label>
                 <div class="col-sm-10">
-                    <input type="date" class="form-control" id="inputPassword3" placeholder="Date" name="date">
+                    <input type="date" class="form-control" id="inputPassword3" placeholder="Date" name="date" required>
+                </div>
+            </div>
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Teacher Id</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="Teacher Id" name="tid" value="<?php echo $_GET['id']??''?>"required>
                 </div>
             </div>
             <div class="custom-file" style="margin-top:5px;">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Select File</label>
 
-                <input type="file" class="custom-file-input" id="customFile" name="file">
+                <input type="file" class="custom-file-input" id="customFile" name="file" required>
             </div>
 
             <div class="form-group row" style="margin-top:5px;">
@@ -83,16 +89,35 @@
         </form>
     </div>
     <?php
+        
         if(isset($_POST['post'])){
+            
+            
             include("../dbcon.php");
             $name = strtolower($_POST['name']);
             $des = $_POST['description'];
             $date = $_POST['date'];
+            $tecid = $_POST['tid'];
             $file = $_FILES['file']['name'];
             $tmpname = $_FILES['file']['tmp_name'];
 
             move_uploaded_file($tmpname,"../assignment_file/$file");
-            
+            $qry = "INSERT INTO `assignment` VALUES('$name','$des','$date','$file','$tecid')";
+            $run = mysqli_query($con,$qry);
+            if ($run == True) {
+                ?>
+                        <script>
+                            alert("Assignment Assigned Successfully.");
+                        </script>
+                <?php
+                    session_reset();
+                    session_destroy();
+                    session_abort();
+                    
+                    
+                    } else {
+                        echo "Error: " . $run . "<br>" . mysqli_error($con);
+                    }
         }
     ?>
 </body>
