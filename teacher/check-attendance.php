@@ -87,8 +87,8 @@ session_start();
     </div>
     <br />
     <div class="container container-fluid table-responsive">
-    
-                    <?php
+
+        <?php
                     if(isset($_GET['fetch'])){
                         $con = mysqli_connect("localhost","root","","major");
                         $dept = $_GET['department'];
@@ -100,8 +100,18 @@ session_start();
                         }
                            
                     ?>
-                    <p style="text-align:center;font-size:22px;">Total Classes = <?php echo $c;?></p>
-                </td>
+        <div class="container bg-primary" style="color:white;font-weight:bolder;">
+            <div class="row">
+                <div class="col-md-6">
+                    <p style="text-align:center;font-size:14px;">Department = <?php echo $dept;?></p>
+                </div>
+                <div class="col-md-6">
+                    <p style="text-align:center;font-size:14px;">Semester = <?php echo $sem;?></p>
+                </div>
+            </div>
+        </div>
+        <p style="text-align:center;font-size:22px;">Total Classes = <?php echo $c;?></p>
+
         <table class="table table-striped table-bordered" width="45%" style="margin-top:20px;">
             <tr style="text-align:center; color:white" class="bg-primary">
                 <th>No.</th>
@@ -111,7 +121,7 @@ session_start();
                 <th>Percentage</th>
             </tr>
             <tr>
-                
+
                 <td>
                     <?php
                      
@@ -140,19 +150,19 @@ session_start();
                 ?>
 
             <tr class="tablestyle" style="text-align:center;">
-                
+
                 <td><?php echo $count ?></td>
                 <td style="text-align:left;"><?php echo $name?></td>
                 <td><?php echo $roll?></td>
                 <td><?php echo $pre?></td>
                 <td>
-                <?php
+                    <?php
                     $percent = ($pre * 100 ) / $c;
                     echo "$percent %";
                 ?>
-                 </td>
-                
-                
+                </td>
+
+
             </tr>
             <?php
                 
@@ -164,3 +174,17 @@ session_start();
                 ?>
             </td>
             </tr>
+        </table>
+    </div>
+    <br>
+    <div class="col-sm-10" style="text-align:center">
+        <button type="submit" class="btn btn-primary" onclick="dwnld();">Download Details</button>
+    </div>
+    <script>
+        function dwnld() {
+            window.print();
+        }
+    </script>
+</body>
+
+</html>
