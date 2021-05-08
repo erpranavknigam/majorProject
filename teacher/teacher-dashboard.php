@@ -98,13 +98,13 @@
         <div class="row" style="padding:30px; margin-top:20px; margin-bottom:20px;">
             <div class="col-md-6">
                 <div class="card" style="width: 18rem;text-align:center;">
-                    <img class="card-img-top" src="../images/quiz.png" alt="Quiz Logo" width="200px" height="200px;">
+                    <img class="card-img-top" src="../images/attendant-list.png" alt="Quiz Logo" width="200px" height="200px;">
 
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="quiz.php?id=<?php echo $id;?>" class="text-primary"
+                        <a href="check-attendance.php?id=<?php echo $id;?>" class="text-primary"
                             style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
-                            <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">Quiz
+                            <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">Check Attendance
                             </p>
                         </a>
                     </div>
@@ -133,7 +133,7 @@
         <div class="row" style="padding:30px; margin-top:20px; margin-bottom:20px;">
             <div class="col-md-12">
                 <div class="card" style="width: 18rem;text-align:center;">
-                    <img class="card-img-top" src="../images/quiz.png" alt="Quiz Logo" width="200px" height="200px;">
+                    <img class="card-img-top" src="../images/assignment.png" alt="Quiz Logo" width="200px" height="200px;">
 
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">

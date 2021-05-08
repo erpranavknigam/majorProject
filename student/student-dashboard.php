@@ -68,7 +68,7 @@
                         height="200px;">
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="assignment.php" class="text-primary"
+                        <a href="s-assignment.php" class="text-primary"
                             style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
                             <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">
                                 Submit Assignment</p>
@@ -82,7 +82,7 @@
 
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="notes.php" class="text-primary"
+                        <a href="s-notes.php" class="text-primary"
                             style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
                             <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">Download
                                 Notes
@@ -102,7 +102,7 @@
 
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="quiz.php" class="text-primary"
+                        <a href="s-quiz.php" class="text-primary"
                             style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
                             <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">Take Quiz
                             </p>
