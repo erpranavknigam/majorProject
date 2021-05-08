@@ -1,5 +1,12 @@
 <?php
     session_start();
+    $get_id = $_GET['id'];
+    if(!$get_id){
+        header("location: teachers-login.php");
+
+    }else {
+        echo "";
+    }
 ?>
 <html>
 

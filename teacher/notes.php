@@ -99,6 +99,7 @@
                 ?>
                         <script>
                             alert("Assignment Assigned Successfully.");
+                            window.open("notes.php?id=<?php echo $tecid;?>",'_self');
                         </script>
                 <?php
                     session_reset();

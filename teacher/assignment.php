@@ -108,6 +108,7 @@
                 ?>
                         <script>
                             alert("Assignment Assigned Successfully.");
+                            window.open("assignment.php?id=<?php echo $tecid;?>",'_self');
                         </script>
                 <?php
                     session_reset();
