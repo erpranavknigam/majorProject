@@ -75,7 +75,7 @@
                         height="200px;">
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="s-assignment.php" class="text-primary"
+                        <a href="s-assignment.php?id=<?php echo $id;?>" class="text-primary"
                             style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
                             <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">
                                 Submit Assignment</p>
@@ -89,7 +89,7 @@
 
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="s-notes.php" class="text-primary"
+                        <a href="s-notes.phpid=<?php echo $id;?>" class="text-primary"
                             style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
                             <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">Download
                                 Notes
@@ -103,20 +103,7 @@
     </div>
     <div class="container" style="text-align:center; justify-content:center; display:flex;">
         <div class="row" style="padding:30px; margin-top:20px; margin-bottom:20px;">
-            <div class="col-md-6">
-                <div class="card" style="width: 18rem;text-align:center;">
-                    <img class="card-img-top" src="../images/quiz.png" alt="Quiz Logo" width="200px" height="200px;">
-
-                    <hr />
-                    <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="s-quiz.php" class="text-primary"
-                            style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
-                            <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">Take Quiz
-                            </p>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-md-6">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="../images/attendant-list.png" alt="Attendance Logo" width="200px"
@@ -124,7 +111,7 @@
 
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="../attendance/index.php" class="text-primary"
+                        <a href="s-attendance.php?id=<?php echo $id;?>" class="text-primary"
                             style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
                             <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">
                                 Check Attendance
