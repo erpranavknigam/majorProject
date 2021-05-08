@@ -161,7 +161,7 @@ button:hover {
 
                 $conn=mysqli_connect('localhost','root','','major');
 
-                $query="INSERT INTO `teacher`(`Teacher Id`, `Name`, `Email`, `Password`) VALUES ('$TeacherId','$Name','$EmailId','$Password')";
+                $query="INSERT INTO `teacher`(`Id`, `Name`, `Email`, `Password`) VALUES ('$TeacherId','$Name','$EmailId','$Password')";
                 $run=mysqli_query($conn,$query);
                 if($run==True){
               ?>      

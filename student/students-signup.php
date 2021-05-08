@@ -145,7 +145,7 @@ body{
   
             $conn=mysqli_connect('localhost','root','','major');
   
-            $query="INSERT INTO `student`(`Student Id`, `Name`, `Roll`, `Email`, `Password`, `Department`, `Semester`) VALUES ('$Student','$FullName','$RollNo','$Email','$Password','$Department','$Semester')";
+            $query="INSERT INTO `student`(`Id`, `Name`, `Roll`, `Email`, `Password`, `Department`, `Semester`) VALUES ('$Student','$FullName','$RollNo','$Email','$Password','$Department','$Semester')";
             $run=mysqli_query($conn,$query);
             if($run==True){
           ?>      
