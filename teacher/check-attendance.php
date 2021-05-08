@@ -103,14 +103,14 @@ session_start();
         <div class="container bg-primary" style="color:white;font-weight:bolder;">
             <div class="row">
                 <div class="col-md-6">
-                    <p style="text-align:center;font-size:14px;">Department = <?php echo $dept;?></p>
+                    <p style="text-align:center;font-size:14px;">Department = <?php echo $dept??"fill details above";?></p>
                 </div>
                 <div class="col-md-6">
-                    <p style="text-align:center;font-size:14px;">Semester = <?php echo $sem;?></p>
+                    <p style="text-align:center;font-size:14px;">Semester = <?php echo $sem??"fill details above";?></p>
                 </div>
             </div>
         </div>
-        <p style="text-align:center;font-size:22px;">Total Classes = <?php echo $c;?></p>
+        <p style="text-align:center;font-size:22px;">Total Classes = <?php echo $c??"fill details above";?></p>
 
         <table class="table table-striped table-bordered" width="45%" style="margin-top:20px;">
             <tr style="text-align:center; color:white" class="bg-primary">
