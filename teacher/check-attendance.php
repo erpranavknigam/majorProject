@@ -158,7 +158,8 @@ session_start();
                 <td>
                     <?php
                     $percent = ($pre * 100 ) / $c;
-                    echo "$percent %";
+                    printf("%.2f",$percent);
+                    echo "%";
                 ?>
                 </td>
 

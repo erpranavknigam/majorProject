@@ -183,11 +183,11 @@ session_start();
         $i = 1;
         $Date = $_GET['date'];
         while($i <= $total){
-            $Name = $_GET['name'.$i];
-            $Dept = $_GET['dept'.$i];
-            $Roll = $_GET['roll'.$i];
-            $Sem = $_GET['sem'.$i];
-            $isPresent = $_GET['is_present'.$i];
+            $Name = $_GET['name'.$i]??"";
+            $Dept = $_GET['dept'.$i]??"";
+            $Roll = $_GET['roll'.$i]??"";
+            $Sem = $_GET['sem'.$i]??"";
+            $isPresent = $_GET['is_present'.$i]??"";
            
             
             $query = "INSERT INTO `attendance` VALUES('$Name','$Roll','$Dept','$Sem','$isPresent','$Date')";
@@ -196,7 +196,9 @@ session_start();
         }
         if($result == true) {
             ?>
-            <script>alert("Attendance Submitted Successfully");</script>
+            <script>
+            alert("Attendance Submitted Successfully");
+            </script>
             <?php
             
         }else {
