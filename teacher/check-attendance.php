@@ -87,29 +87,39 @@ session_start();
     </div>
     <br />
     <div class="container container-fluid table-responsive">
-        <?php
-            if(isset($_POST['fetch'])){
-                $con = mysqli_connect("localhost","root","","major");
-                $query = "SELECT `Date` FROM `attendance` WHERE WHERE `Department` = '$dept' AND `Semester` = '$sem' GROUP BY `Date`";
-                
-            }
-        ?>
+    
+                    <?php
+                    if(isset($_GET['fetch'])){
+                        $con = mysqli_connect("localhost","root","","major");
+                        $dept = $_GET['department'];
+                        $sem = $_GET['sem'];
+                        $qury = "SELECT COUNT(DISTINCT(Date)) FROM `attendance` WHERE `Department` = '$dept' AND `Semester` = '$sem'";
+                        $res = mysqli_query($con,$qury);
+                        $d = mysqli_fetch_assoc($res);
+                        $c = $d['COUNT(DISTINCT(Date))'];
+                        }
+                           
+                    ?>
+                    <p style="text-align:center;font-size:22px;">Total Classes = <?php echo $c;?></p>
+                </td>
         <table class="table table-striped table-bordered" width="45%" style="margin-top:20px;">
             <tr style="text-align:center; color:white" class="bg-primary">
                 <th>No.</th>
                 <th>Name</th>
                 <th>Roll No.</th>
                 <th>Total Attended</th>
+                <th>Percentage</th>
             </tr>
             <tr>
+                
                 <td>
                     <?php
-                        
+                     
                 if (isset($_GET['fetch'])) {
                     $con = mysqli_connect("localhost","root","","major");
                     $dept = $_GET['department'];
                     $sem = $_GET['sem'];
-                    $qry = "SELECT * FROM `attendance` WHERE `Department` = '$dept' AND `Semester` = '$sem' GROUP BY `Roll`";
+                    $qry = "SELECT COUNT(DISTINCT(Date)),`Name`,`Roll`,SUM(Is_Present) FROM `attendance` WHERE `Department` = '$dept' AND `Semester` = '$sem' GROUP BY `Roll`";
                     $result = mysqli_query($con,$qry);
                     
                     if (mysqli_num_rows($result) < 1) {
@@ -117,17 +127,30 @@ session_start();
                         echo "<tr><td colspan = '7'>No record Found</td></tr>";
                     } else {
                         $count = 0;
+                        
+                        
                         while ($data = mysqli_fetch_assoc($result)) {
                             
                             $count++;
+                            $name = $data['Name'];
+                            $roll = $data['Roll'];
+                            $pre = $data['SUM(Is_Present)'];
+                            $dates = $data['COUNT(DISTINCT(Date))']
+                            
                 ?>
 
-            <tr class="tablestyle">
+            <tr class="tablestyle" style="text-align:center;">
+                
                 <td><?php echo $count ?></td>
-                <td><?php echo $data['Name']?></td>
-                <td><?php echo $data['Roll']?></td>
-                <td><?php echo "";?></td>
-                <!-- <td><?php echo $data['Is_Present']?></td> -->
+                <td style="text-align:left;"><?php echo $name?></td>
+                <td><?php echo $roll?></td>
+                <td><?php echo $pre?></td>
+                <td>
+                <?php
+                    $percent = ($pre * 100 ) / $c;
+                    echo "$percent %";
+                ?>
+                 </td>
                 
                 
             </tr>
