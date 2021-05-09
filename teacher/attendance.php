@@ -125,11 +125,11 @@ session_start();
 
                 <tr class="tablestyle">
                     <td><?php echo $count ?></td>
-                    <td><input type="text" value="<?php echo $data['Name']; ?>" name="name<?php echo $count?>"></td>
-                    <td><input type="text" value="<?php echo $data['Roll']; ?>" name="roll<?php echo $count?>"></td>
-                    <td><input type="text" value="<?php echo $data['Department']; ?>" name="dept<?php echo $count?>">
+                    <td><input type="text" value="<?php echo $data['Name']; ?>" name="name<?php echo $count?>"  readonly></td>
+                    <td><input type="text" value="<?php echo $data['Roll']; ?>" name="roll<?php echo $count?>"  readonly></td>
+                    <td><input type="text" value="<?php echo $data['Department']; ?>" name="dept<?php echo $count?>" readonly>
                     </td>
-                    <td><input type="text" value="<?php echo $data['Semester']; ?>" name="sem<?php echo $count?>"></td>
+                    <td><input type="text" value="<?php echo $data['Semester']; ?>" name="sem<?php echo $count?>" readonly></td>
                     <td>
 
                         <input type="radio" name="is_present<?php echo $count;?>" value="1">
