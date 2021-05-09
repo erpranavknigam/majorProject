@@ -82,7 +82,7 @@
                 <th>Department</th>
                 <th>Semester</th>
                 <th>Download<br /> Assignment</th>
-                <th>Select File</th>
+                
                 <th>Submit<br />Assignment</th>
             </tr>
 
@@ -125,12 +125,7 @@
                         </button>
                     </td>
                     <td>
-                        <div class="custom-file" style="margin-top:5px;">
-
-                            <input type="file" class="custom-file-input" id="customFile" name="file" required>
-                        </div>
-                    <td>
-                        <button type="file" class="btn btn-success" name="upload">
+                        <button type="file" class="btn btn-success" name="upload<?php echo $count;?>">
                             Upload
                         </button>
                     </td>

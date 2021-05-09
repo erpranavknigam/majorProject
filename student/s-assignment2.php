@@ -41,7 +41,7 @@
 </head>
 
 <body>
-<div class="jumbotron bg-success"
+    <div class="jumbotron bg-success"
         style="text-align:center; padding: 25px; font-size: 4vw;color:white;font-family:Righteous">Welcome To Student's
         Dashboard
         <span style="font-size:small;float:right;border:2px ridge ;border-radius:5px;padding: 3px;" class="logout"><a
@@ -54,35 +54,15 @@
 
     </div>
     <br />
-    
+
     <?php
     $title = $_POST['title'];
-    $desc = $_POST['desc'];
-    $date = $_POST['date'];
+    
+    
     $sDate = Date("Y-m-d");
-    $dept = $_POST['dept'];
+    
     $sem = $_POST['sem'];
-    $file = $_FILES['file']['name'];
-    $tmpname = $_FILES['file']['tmp_name'];
-    move_uploaded_file($tmpname,"../s_assign_file/$file");
-    echo $get_id;
-        echo "<br/>";
-        echo $title;
-        echo "<br/>";
-        echo $desc;
-        echo "<br/>";
-        echo $date;
-        echo "<br/>";
-        echo $sDate;
-        echo "<br/>";
-        echo $dept;
-        echo "<br/>";
-        echo $sem;
-        echo "<br/>";
-        echo $file;
-        echo "<br/>";
-        echo $tmpname;
-        echo "<br/>";
+        
         $con = mysqli_connect("localhost","root","","major");
         $qry = "SELECT * FROM `student` WHERE `Id` = '$get_id'";
         $result = mysqli_query($con,$qry);
@@ -92,43 +72,121 @@
                 $name = $row['Name'];
             }
         }
-        echo $name;
-    
-    // if(isset($_POST['post'])){
-       
-    //     $file = $_FILES['file']['name'];
-    //     $tmpname = $_FILES['file']['tmp_name'];
-    //     move_uploaded_file($tmpname,"../s_assign_file/$file");
-    //     $con = mysqli_connect("localhost","root","","major");
-    //     $qry = "INSERT INTO `subAssignment` VALUES('$title','$name','$date','$sDate','$file','$dept','$sem')";
-    //     $run = mysqli_query($con,$qry);
-    //     echo $get_id;
-    //     echo "<br/>";
-    //     echo $title;
-    //     echo "<br/>";
-    //     echo $desc;
-    //     echo "<br/>";
-    //     echo $date;
-    //     echo "<br/>";
-    //     echo $sDate;
-    //     echo "<br/>";
-    //     echo $dept;
-    //     echo "<br/>";
-    //     echo $sem;
-
-        // if ($run == True) {
-        //     ?>
-        <!-- //             <script>
-        //                 alert("Assignment Submitted Successfully.");
-        //                 window.open("s-assignment.php?id=<?php echo $get_id;?>",'_self');
-        //             </script> -->
-        //     <?php
-                
-        //         } else {
-        //             echo "Error: " . $run . "<br>" . mysqli_error($con);
-        //         }
-     //}
+         
 ?>
+    <div class="container">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputEmail3"
+                        name="title" value="<?php echo $title;?>" readonly>
+                </div>
+            </div>
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="Description"
+                        name="name" value="<?php echo $name;?>" readonly required>
+                </div>
+            </div>
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Due Date</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="inputPassword3" placeholder="Date" name="due_date" value="<?php echo $date;?>" readonly required>
+                </div>
+            </div>
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Submitted Date</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" id="inputPassword3" placeholder="Date" name="sub_date" value="<?php echo $sDate;?>" readonly required>
+                </div>
+            </div>
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
+                <div class="col-sm-10">
+                    <select class="option" name="department" value="<?php echo $dept;?>" readonly  required>
+                        <option disabled="disabled" selected="selected">--Choose option</option>
+                        <option> Computer Science & Engineering</option>
+                        <option> Electrical Engineering </option>
+                        <option> Civil Engineering</option>
+                        <option> Mechanical Engineering </option>
+                        <option> Mining Engineering</option>
+                    </select><br>
+                </div>
+            </div>
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Semester</label>
+                <div class="col-sm-10">
+                    <select class="option" name="sem" value="<?php echo $sem;?>" readonly required>
+                        <option disabled="disabled" selected="selected">--Choose option</option>
+                        <option value=1> 1st </option>
+                        <option value=2> 2nd </option>
+                        <option value=3> 3rd </option>
+                        <option value=4> 4th </option>
+                        <option value=5> 5th </option>
+                        <option value=6> 6th </option>
+                        <option value=7> 7th </option>
+                        <option value=8> 8th </option>
+                    </select><br><br>
+
+                </div>
+            </div>
+            <div class="custom-file" style="margin-top:5px;">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Select File</label>
+
+                <input type="file" class="custom-file-input" id="customFile" name="file" required>
+            </div>
+
+            <div class="form-group row" style="margin-top:5px;">
+
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary" name="post">Submit Assignment</button>
+                </div>
+                <br />
+                <div class="col-sm-10" style="margin-top: 5px;">
+                    <button type="reset" class="btn btn-danger">Reset Details</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <?php
+        
+        if(isset($_POST['post'])){
+            
+            
+            include("../dbcon.php");
+            $title = $_POST['title'];
+            $name = $_POST['name'];
+            $due_date = $_POST['due_date'];
+            $sub_date = $_POST['sub_date'];
+            
+            $dept = $_POST['department'];
+            $semester = $_POST['sem']; 
+            $file = $_FILES['file']['name'];
+            $tmpname = $_FILES['file']['tmp_name'];
+
+            move_uploaded_file($tmpname,"../s_assign_file/$file");
+            $qry = "INSERT INTO `subassignment` VALUES('$title','$name','$due_date','$sub_date','$file','$dept','$semester')";
+            $run = mysqli_query($con,$qry);
+            if ($run == True) {
+                ?>
+                        <script>
+                            alert("Assignment submitted Successfully.");
+                            window.open("s-assignment.php?id=<?php echo $get_id;?>",'_self');
+                        </script>
+                <?php
+                    session_reset();
+                    session_destroy();
+                    session_abort();
+                    
+                    
+                    } else {
+                        echo "Error: " . $run . "<br>" . mysqli_error($con);
+                    }
+        }
+    ?>
 </body>
 
 </html>
