@@ -58,7 +58,7 @@
     <?php
     $title = $_POST['title'];
     
-    
+    $date = $_POST['date'];
     $sDate = Date("Y-m-d");
     
     $sem = $_POST['sem'];
