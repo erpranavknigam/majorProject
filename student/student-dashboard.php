@@ -89,7 +89,7 @@
 
                     <hr />
                     <div class="card-body bg-success" style="margin-top:-10px;">
-                        <a href="s-notes.phpid=<?php echo $id;?>" class="text-primary"
+                        <a href="s-notes.php?id=<?php echo $id;?>" class="text-primary"
                             style="text-decoration:none; font-weight:bold; font-size:large;font-family:Poppins; color:limegreen; margin-top:-10px;">
                             <p class="card-text !text-primary linkStyle" style="text-align:center; color:white;">Download
                                 Notes

@@ -46,8 +46,7 @@
             <div class="form-group row" style="margin-top:5px;">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="Title of Notes"
-                        name="name">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="Title of Notes" name="name">
                 </div>
             </div>
             <div class="form-group row" style="margin-top:5px;">
@@ -60,10 +59,40 @@
             <div class="form-group row" style="margin-top:5px;">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Teacher Id</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputPassword3" placeholder="Teacher Id" name="tid" value="<?php echo $_GET['id']??''?>"required>
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="Teacher Id" name="tid"
+                        value="<?php echo $_GET['id']??''?>" required>
                 </div>
             </div>
-            
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Department</label>
+                <div class="col-sm-10">
+                    <select class="option" name="department" required>
+                        <option disabled="disabled" selected="selected">--Choose option</option>
+                        <option> Computer Science & Engineering</option>
+                        <option> Electrical Engineering </option>
+                        <option> Civil Engineering</option>
+                        <option> Mechanical Engineering </option>
+                        <option> Mining Engineering</option>
+                    </select><br>
+                </div>
+            </div>
+            <div class="form-group row" style="margin-top:5px;">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Semester</label>
+                <div class="col-sm-10">
+                    <select class="option" name="sem" required>
+                        <option disabled="disabled" selected="selected">--Choose option</option>
+                        <option value=1> 1st </option>
+                        <option value=2> 2nd </option>
+                        <option value=3> 3rd </option>
+                        <option value=4> 4th </option>
+                        <option value=5> 5th </option>
+                        <option value=6> 6th </option>
+                        <option value=7> 7th </option>
+                        <option value=8> 8th </option>
+                    </select><br><br>
+
+                </div>
+            </div>
             <div class="custom-file" style="margin-top:5px;">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Select File</label>
 
@@ -88,20 +117,22 @@
             include("../dbcon.php");
             $name = strtolower($_POST['name']);
             $des = $_POST['description'];
+            $sem = $_POST['sem'];
+            $dept = $_POST['department'];
             $tecid = $_POST['tid'];
             $file = $_FILES['file']['name'];
             $tmpname = $_FILES['file']['tmp_name'];
 
             move_uploaded_file($tmpname,"../notes_file/$file");
-            $qry = "INSERT INTO `notes` VALUES('$name','$des','$file','$tecid')";
+            $qry = "INSERT INTO `notes` VALUES('$name','$des','$file','$tecid','$dept','$sem')";
             $run = mysqli_query($con,$qry);
             if ($run == True) {
                 ?>
-                        <script>
-                            alert("Assignment Assigned Successfully.");
-                            window.open("notes.php?id=<?php echo $tecid;?>",'_self');
-                        </script>
-                <?php
+    <script>
+    alert("Assignment Assigned Successfully.");
+    window.open("notes.php?id=<?php echo $tecid;?>", '_self');
+    </script>
+    <?php
                     session_reset();
                     session_destroy();
                     session_abort();
@@ -113,7 +144,7 @@
             
         }
     ?>
-    
+
 </body>
 
 </html>
