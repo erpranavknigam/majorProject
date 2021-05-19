@@ -20,10 +20,14 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<<<<<<< HEAD
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
 
+=======
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+>>>>>>> 74195fd90e28368e2f554109c7586de95ff2cebb
     <style>
     
         .container{
@@ -35,10 +39,12 @@
                 border: none;
             }
         }
+        
     </style>
 </head>
 
 <body onexit="<?php session_abort();?>">
+<<<<<<< HEAD
 <style>
     .no-js #loader { display: none;  }
 .js #loader { display: block; position: absolute; left: 100px; top: 0; }
@@ -60,6 +66,9 @@
 		$(".se-pre-con").fadeOut("slow");;
 	});
 </script>
+=======
+    
+>>>>>>> 74195fd90e28368e2f554109c7586de95ff2cebb
     <div class="jumbotron bg-success"
         style="text-align:center; padding: 25px; font-size: 4vw;color:white;font-family:Righteous">Online Classroom
     </div>
