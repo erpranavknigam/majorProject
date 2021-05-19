@@ -20,7 +20,12 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+
     <style>
+    
         .container{
             border:3px ridge green; 
         }
@@ -34,6 +39,27 @@
 </head>
 
 <body onexit="<?php session_abort();?>">
+<style>
+    .no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(images/Skateboarding.gif) center no-repeat #fff;
+}
+</style>
+
+<div class="se-pre-con"></div>
+<script>
+    $(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+	});
+</script>
     <div class="jumbotron bg-success"
         style="text-align:center; padding: 25px; font-size: 4vw;color:white;font-family:Righteous">Online Classroom
     </div>
